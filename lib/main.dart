@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiver/strings.dart';
 
 void main() => runApp(StatefulApp());
 
@@ -219,9 +220,9 @@ class _FuelFormState extends State<FuelForm> {
   }
 
   String _calcular() {
-    num _distancia = num.parse(distanceController.text);
-    num _promedio = num.parse(promedioController.text);
-    num _precio = num.parse(precioController.text);
+    num _distancia = isNotEmpty(distanceController.text) ? num.parse(distanceController.text) : 0;
+    num _promedio = isNotEmpty(promedioController.text) ? num.parse(promedioController.text) : 0;
+    num _precio = isNotEmpty(precioController.text) ? num.parse(precioController.text) : 0;
     num _resultado = _distancia / _promedio * _precio;
 
     return "Costo total del viaje es " +
